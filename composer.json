@@ -1,0 +1,18 @@
+{
+    "name": "kercode23/exo-composer",
+    "description": "exo 2",
+    "autoload": {
+        "psr-4": {
+            "Kercode23\\ExoComposer\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Antoine Boeraeve",
+            "email": "antoine.boeraeve@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
