@@ -10,13 +10,12 @@
 <body>
     <?php
     require("form.php");
-
-    $username = "root";
-    $password = "";
+    
+   
 
     try {
 
-        $conn = new PDO("mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'], $username, $password);
+        $conn = new PDO("mysql:host=" . $_ENV['DB_HOST'] . ";dbname=" . $_ENV['DB_NAME'], $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
 
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -29,7 +28,9 @@
                 $statement = $conn->prepare($request);
                 $statement->execute(['label' => $_POST['product'], 'prix' => $_POST['price']]);
 
-                echo 'Traitement effectué avec succés';
+                echo 'Traitement effectué avec succés. Rafraichissement dans 3 secondes.';
+
+                header('Refresh:3');
             }
         } else {
 
